@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-function SignIn({ history }) {
+function SignIn() {
+  const history = useHistory();
+
   const [formData, setFormData] = useState({
     usernameOrEmail: '',
   });
@@ -18,14 +21,8 @@ function SignIn({ history }) {
       );
       console.log(response.data); // Handle success response
 
-      if (response.data.length > 0) {
-        // User found, redirect to booking form
-        history.push('/booking');
-      } else {
-        // User not found, handle error
-        console.log('User not found');
-        // You can display an error message to the user or handle it as per your requirements
-      }
+      // Redirect to home page
+      history.push('/');
     } catch (error) {
       console.error(error); // Handle error
     }

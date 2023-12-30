@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-function Register({ history }) {
+function Register() {
+  const history = useHistory();
+
   const [formData, setFormData] = useState({
     name: '',
     username: '',
